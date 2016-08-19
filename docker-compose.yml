@@ -1,0 +1,17 @@
+mysql:
+    image: mysql:5.7
+    environment:
+        MYSQL_DATABASE: reportserver
+        MYSQL_USER: reportserver
+        MYSQL_PASSWORD: 641949548825f1f8c51d5f547ab88faa
+        MYSQL_RANDOM_ROOT_PASSWORD : 'true'
+reportserver:
+    build: .
+    environment:
+        MYSQL_DATABASE: reportserver
+        MYSQL_USER: reportserver
+        MYSQL_PASSWORD: 641949548825f1f8c51d5f547ab88faa
+    ports:
+        - "8080:8080"
+    links:
+        - mysql
